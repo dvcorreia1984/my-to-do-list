@@ -32,7 +32,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        //bable loader will make your project functional on all browsers
+        // bable loader will make your project functional on all browsers
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
@@ -42,7 +42,7 @@ module.exports = {
           },
         },
       },
-      //this will load all images
+      // this will load all images
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
@@ -52,7 +52,7 @@ module.exports = {
   optimization: {
     runtimeChunk: 'single',
   },
-  //this will build the dist html file based on the template file
+  // this will build the dist html file based on the template file
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Webpack App',

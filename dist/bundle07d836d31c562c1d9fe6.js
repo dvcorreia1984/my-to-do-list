@@ -71,7 +71,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 }
 
 body {
-  background-color: aquamarine;
+  background-color: #e5f1f3;
   flex-direction: column;
   align-items: center;
   font-family: 'Roboto', sans-serif;
@@ -109,7 +109,7 @@ div#todo {
 
 div#wrapper {
   width: 80vw;
-  background-color: skyblue;
+  background-color: #abd8c9;
   margin: 10vw;
 }
 
@@ -124,10 +124,11 @@ div#addList {
 }
 
 div#clear {
+  color: white;
   align-items: center;
   padding: 20px;
   font-size: medium;
-  background-color: wheat;
+  background-color: #58B294;
 }
 
 .checkbox {
@@ -137,7 +138,7 @@ div#clear {
 .description {
   flex-grow: 2;
 }
-`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,SAAS;EACT,UAAU;EACV,aAAa;EACb,sBAAsB;AACxB;;AAEA;EACE,4BAA4B;EAC5B,sBAAsB;EACtB,mBAAmB;EACnB,iCAAiC;EACjC,eAAe;EACf,SAAS;AACX;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,mBAAmB;EACnB,8BAA8B;EAC9B,uBAAuB;EACvB,aAAa;AACf;;AAEA;EACE,6BAA6B;AAC/B;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,iBAAiB;EACjB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;AACzB;;AAEA;EACE,WAAW;EACX,yBAAyB;EACzB,YAAY;AACd;;AAEA;EACE,8BAA8B;EAC9B,mBAAmB;EACnB,WAAW;EACX,kBAAkB;EAClB,iBAAiB;EACjB,uBAAuB;EACvB,aAAa;AACf;;AAEA;EACE,mBAAmB;EACnB,aAAa;EACb,iBAAiB;EACjB,uBAAuB;AACzB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,YAAY;AACd","sourcesContent":["* {\r\n  margin: 0;\r\n  padding: 0;\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\nbody {\r\n  background-color: aquamarine;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  font-family: 'Roboto', sans-serif;\r\n  font-size: 34px;\r\n  margin: 0;\r\n}\r\n\r\nh2 {\r\n  font-size: 1rem;\r\n}\r\n\r\ndiv#todoHeading {\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  border: 1px solid black;\r\n  padding: 10px;\r\n}\r\n\r\ndiv#todo {\r\n  justify-content: space-around;\r\n}\r\n\r\n.fas {\r\n  font-size: 1rem;\r\n}\r\n\r\n.todo-item {\r\n  font-size: medium;\r\n  padding: 10px;\r\n  flex-direction: row;\r\n  border: 1px solid black;\r\n}\r\n\r\ndiv#wrapper {\r\n  width: 80vw;\r\n  background-color: skyblue;\r\n  margin: 10vw;\r\n}\r\n\r\ndiv#addList {\r\n  justify-content: space-between;\r\n  flex-direction: row;\r\n  color: grey;\r\n  font-style: italic;\r\n  font-size: medium;\r\n  border: 1px solid black;\r\n  padding: 10px;\r\n}\r\n\r\ndiv#clear {\r\n  align-items: center;\r\n  padding: 20px;\r\n  font-size: medium;\r\n  background-color: wheat;\r\n}\r\n\r\n.checkbox {\r\n  padding-right: 10px;\r\n}\r\n\r\n.description {\r\n  flex-grow: 2;\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,SAAS;EACT,UAAU;EACV,aAAa;EACb,sBAAsB;AACxB;;AAEA;EACE,yBAAyB;EACzB,sBAAsB;EACtB,mBAAmB;EACnB,iCAAiC;EACjC,eAAe;EACf,SAAS;AACX;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,mBAAmB;EACnB,8BAA8B;EAC9B,uBAAuB;EACvB,aAAa;AACf;;AAEA;EACE,6BAA6B;AAC/B;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,iBAAiB;EACjB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;AACzB;;AAEA;EACE,WAAW;EACX,yBAAyB;EACzB,YAAY;AACd;;AAEA;EACE,8BAA8B;EAC9B,mBAAmB;EACnB,WAAW;EACX,kBAAkB;EAClB,iBAAiB;EACjB,uBAAuB;EACvB,aAAa;AACf;;AAEA;EACE,YAAY;EACZ,mBAAmB;EACnB,aAAa;EACb,iBAAiB;EACjB,yBAAyB;AAC3B;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,YAAY;AACd","sourcesContent":["* {\r\n  margin: 0;\r\n  padding: 0;\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\nbody {\r\n  background-color: #e5f1f3;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  font-family: 'Roboto', sans-serif;\r\n  font-size: 34px;\r\n  margin: 0;\r\n}\r\n\r\nh2 {\r\n  font-size: 1rem;\r\n}\r\n\r\ndiv#todoHeading {\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  border: 1px solid black;\r\n  padding: 10px;\r\n}\r\n\r\ndiv#todo {\r\n  justify-content: space-around;\r\n}\r\n\r\n.fas {\r\n  font-size: 1rem;\r\n}\r\n\r\n.todo-item {\r\n  font-size: medium;\r\n  padding: 10px;\r\n  flex-direction: row;\r\n  border: 1px solid black;\r\n}\r\n\r\ndiv#wrapper {\r\n  width: 80vw;\r\n  background-color: #abd8c9;\r\n  margin: 10vw;\r\n}\r\n\r\ndiv#addList {\r\n  justify-content: space-between;\r\n  flex-direction: row;\r\n  color: grey;\r\n  font-style: italic;\r\n  font-size: medium;\r\n  border: 1px solid black;\r\n  padding: 10px;\r\n}\r\n\r\ndiv#clear {\r\n  color: white;\r\n  align-items: center;\r\n  padding: 20px;\r\n  font-size: medium;\r\n  background-color: #58B294;\r\n}\r\n\r\n.checkbox {\r\n  padding-right: 10px;\r\n}\r\n\r\n.description {\r\n  flex-grow: 2;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -590,4 +591,4 @@ module.exports = styleTagTransform;
 /******/ var __webpack_exports__ = (__webpack_exec__("./src/index.js"));
 /******/ }
 ]);
-//# sourceMappingURL=bundle454624ba92854eff3940.js.map
+//# sourceMappingURL=bundle07d836d31c562c1d9fe6.js.map

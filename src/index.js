@@ -1,10 +1,10 @@
 import './style.css';
 
 const tasks = [
-  { completed: false, description: 'Add tickbox',  index: 4},
-  { completed: false, description: 'Do laundry',  index: 2},
-  { completed: false, description: 'Take out trash',  index: 3},
-  { completed: false, description: 'Make dinner',  index: 1},
+  { completed: false, description: 'Add tickbox', index: 4 },
+  { completed: false, description: 'Do laundry', index: 2 },
+  { completed: false, description: 'Take out trash', index: 3 },
+  { completed: false, description: 'Make dinner', index: 1 },
 ];
 
 const todoListContainer = document.getElementById('todo');
