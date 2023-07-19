@@ -1,11 +1,64 @@
-body {
-  background-color: aquamarine;
+* {
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+}
+
+body {
+  background-color: aquamarine;
+  flex-direction: column;
   align-items: center;
   font-family: 'Roboto', sans-serif;
   font-size: 34px;
   margin: 0;
-  padding: 0;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+div#todoHeading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+div#todo {
+  justify-content: space-around;
+}
+
+.fas {
+  font-size: 1rem;
+}
+
+.todo-item {
+  font-size: medium;
+  padding: 10px;
+  flex-direction: row;
+  border: 1px solid black;
+}
+
+div#wrapper {
+  width: 80vw;
+  background-color: skyblue;
+  margin: 10vw;
+}
+
+div#addList {
+  color: grey;
+  font-style: italic;
+  font-size: medium;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+div#clear {
+  align-items: center;
+  padding: 20px;
+  font-size: medium;
+  background-color: coral;
 }

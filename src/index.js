@@ -4,6 +4,7 @@ const tasks = [
   {description: 'Wash dishes', completed: true, id: 1},
   {description: 'Do laundry', completed: false, id: 2},
   {description: 'Take out trash', completed: false, id: 3},
+  {description: 'Make dinner', completed: false, id: 4},
 ];
 
 const todoListContainer = document.getElementById('todo');
