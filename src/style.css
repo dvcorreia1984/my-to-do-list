@@ -40,6 +40,7 @@ div#todo {
   padding: 10px;
   flex-direction: row;
   border: 1px solid black;
+  justify-content: space-between;
 }
 
 div#wrapper {
@@ -49,6 +50,8 @@ div#wrapper {
 }
 
 div#addList {
+  justify-content: space-between;
+  flex-direction: row;
   color: grey;
   font-style: italic;
   font-size: medium;

@@ -1,22 +1,24 @@
 import './style.css';
 
 const tasks = [
-  {description: 'Wash dishes', completed: true, id: 1},
-  {description: 'Do laundry', completed: false, id: 2},
-  {description: 'Take out trash', completed: false, id: 3},
-  {description: 'Make dinner', completed: false, id: 4},
+  { completed: false, description: 'Add tickbox',  index: 4},
+  { completed: false, description: 'Do laundry',  index: 2},
+  { completed: false, description: 'Take out trash',  index: 3},
+  { completed: false, description: 'Make dinner',  index: 1},
 ];
 
 const todoListContainer = document.getElementById('todo');
 
 function renderTodoList() {
   todoListContainer.innerHTML = '';
+  tasks.sort((a, b) => a.index - b.index);
   tasks.forEach((task) => {
     const listItem = document.createElement('div');
     listItem.className = 'todo-item';
     listItem.innerHTML = `
-      <span class="description">${task.description}</span>
-      <span class="completed">${task.completed ? 'Completed' : 'Incomplete'}</span>
+      <div class="checkbox"><i class="fa-regular fa-square"></i></div>
+      <div class="description">${task.description}</div>
+      <div><i class="fa-solid fa-ellipsis-vertical"></i></div>
     `;
     todoListContainer.appendChild(listItem);
   });

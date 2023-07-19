@@ -11,29 +11,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
 
 var tasks = [{
-  description: 'Wash dishes',
-  completed: true,
-  id: 1
+  completed: false,
+  description: 'Add tickbox',
+  index: 4
 }, {
+  completed: false,
   description: 'Do laundry',
-  completed: false,
-  id: 2
+  index: 2
 }, {
+  completed: false,
   description: 'Take out trash',
-  completed: false,
-  id: 3
+  index: 3
 }, {
-  description: 'Make dinner',
   completed: false,
-  id: 4
+  description: 'Make dinner',
+  index: 1
 }];
 var todoListContainer = document.getElementById('todo');
 function renderTodoList() {
   todoListContainer.innerHTML = '';
+  tasks.sort(function (a, b) {
+    return a.index - b.index;
+  });
   tasks.forEach(function (task) {
     var listItem = document.createElement('div');
     listItem.className = 'todo-item';
-    listItem.innerHTML = "\n      <span class=\"description\">".concat(task.description, "</span>\n      <span class=\"completed\">").concat(task.completed ? 'Completed' : 'Incomplete', "</span>\n    ");
+    listItem.innerHTML = "\n      <div class=\"description\">".concat(task.description, "</div>\n      <div><i class=\"fa-solid fa-ellipsis-vertical\"></i></div>\n    ");
     todoListContainer.appendChild(listItem);
   });
 }
@@ -102,6 +105,7 @@ div#todo {
   padding: 10px;
   flex-direction: row;
   border: 1px solid black;
+  justify-content: space-between;
 }
 
 div#wrapper {
@@ -111,6 +115,10 @@ div#wrapper {
 }
 
 div#addList {
+  justify-content: space-between;
+  flex-direction: row;
+  color: grey;
+  font-style: italic;
   font-size: medium;
   border: 1px solid black;
   padding: 10px;
@@ -122,7 +130,7 @@ div#clear {
   font-size: medium;
   background-color: coral;
 }
-`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,SAAS;EACT,UAAU;EACV,aAAa;EACb,sBAAsB;AACxB;;AAEA;EACE,4BAA4B;EAC5B,sBAAsB;EACtB,mBAAmB;EACnB,iCAAiC;EACjC,eAAe;EACf,SAAS;AACX;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,mBAAmB;EACnB,8BAA8B;EAC9B,uBAAuB;EACvB,aAAa;AACf;;AAEA;EACE,6BAA6B;AAC/B;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,iBAAiB;EACjB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;AACzB;;AAEA;EACE,WAAW;EACX,yBAAyB;EACzB,YAAY;AACd;;AAEA;EACE,iBAAiB;EACjB,uBAAuB;EACvB,aAAa;AACf;;AAEA;EACE,mBAAmB;EACnB,aAAa;EACb,iBAAiB;EACjB,uBAAuB;AACzB","sourcesContent":["* {\r\n  margin: 0;\r\n  padding: 0;\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\nbody {\r\n  background-color: aquamarine;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  font-family: 'Roboto', sans-serif;\r\n  font-size: 34px;\r\n  margin: 0;\r\n}\r\n\r\nh2 {\r\n  font-size: 1rem;\r\n}\r\n\r\ndiv#todoHeading {\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  border: 1px solid black;\r\n  padding: 10px;\r\n}\r\n\r\ndiv#todo {\r\n  justify-content: space-around;\r\n}\r\n\r\n.fas {\r\n  font-size: 1rem;\r\n}\r\n\r\n.todo-item {\r\n  font-size: medium;\r\n  padding: 10px;\r\n  flex-direction: row;\r\n  border: 1px solid black;\r\n}\r\n\r\ndiv#wrapper {\r\n  width: 80vw;\r\n  background-color: skyblue;\r\n  margin: 10vw;\r\n}\r\n\r\ndiv#addList {\r\n  font-size: medium;\r\n  border: 1px solid black;\r\n  padding: 10px;\r\n}\r\n\r\ndiv#clear {\r\n  align-items: center;\r\n  padding: 20px;\r\n  font-size: medium;\r\n  background-color: coral;\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,SAAS;EACT,UAAU;EACV,aAAa;EACb,sBAAsB;AACxB;;AAEA;EACE,4BAA4B;EAC5B,sBAAsB;EACtB,mBAAmB;EACnB,iCAAiC;EACjC,eAAe;EACf,SAAS;AACX;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,mBAAmB;EACnB,8BAA8B;EAC9B,uBAAuB;EACvB,aAAa;AACf;;AAEA;EACE,6BAA6B;AAC/B;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,iBAAiB;EACjB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,8BAA8B;AAChC;;AAEA;EACE,WAAW;EACX,yBAAyB;EACzB,YAAY;AACd;;AAEA;EACE,8BAA8B;EAC9B,mBAAmB;EACnB,WAAW;EACX,kBAAkB;EAClB,iBAAiB;EACjB,uBAAuB;EACvB,aAAa;AACf;;AAEA;EACE,mBAAmB;EACnB,aAAa;EACb,iBAAiB;EACjB,uBAAuB;AACzB","sourcesContent":["* {\r\n  margin: 0;\r\n  padding: 0;\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\nbody {\r\n  background-color: aquamarine;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  font-family: 'Roboto', sans-serif;\r\n  font-size: 34px;\r\n  margin: 0;\r\n}\r\n\r\nh2 {\r\n  font-size: 1rem;\r\n}\r\n\r\ndiv#todoHeading {\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  border: 1px solid black;\r\n  padding: 10px;\r\n}\r\n\r\ndiv#todo {\r\n  justify-content: space-around;\r\n}\r\n\r\n.fas {\r\n  font-size: 1rem;\r\n}\r\n\r\n.todo-item {\r\n  font-size: medium;\r\n  padding: 10px;\r\n  flex-direction: row;\r\n  border: 1px solid black;\r\n  justify-content: space-between;\r\n}\r\n\r\ndiv#wrapper {\r\n  width: 80vw;\r\n  background-color: skyblue;\r\n  margin: 10vw;\r\n}\r\n\r\ndiv#addList {\r\n  justify-content: space-between;\r\n  flex-direction: row;\r\n  color: grey;\r\n  font-style: italic;\r\n  font-size: medium;\r\n  border: 1px solid black;\r\n  padding: 10px;\r\n}\r\n\r\ndiv#clear {\r\n  align-items: center;\r\n  padding: 20px;\r\n  font-size: medium;\r\n  background-color: coral;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -575,4 +583,4 @@ module.exports = styleTagTransform;
 /******/ var __webpack_exports__ = (__webpack_exec__("./src/index.js"));
 /******/ }
 ]);
-//# sourceMappingURL=bundlef65388be599e9386503d.js.map
+//# sourceMappingURL=bundle03b3854ff43fb2a35033.js.map
