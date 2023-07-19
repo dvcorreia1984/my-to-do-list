@@ -1,4 +1,4 @@
-import './styles/main.css';
+import './style.css';
 
 const tasks = [
   {description: 'Wash dishes', completed: true, id: 1},
