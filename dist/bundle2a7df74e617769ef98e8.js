@@ -9,11 +9,31 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
-/* harmony import */ var _assets_laughing_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/laughing.svg */ "./src/assets/laughing.svg");
 
-
-var laughImg = document.getElementById('laughImg');
-laughImg.src = _assets_laughing_svg__WEBPACK_IMPORTED_MODULE_1__;
+var tasks = [{
+  description: 'Wash dishes',
+  completed: true,
+  id: 1
+}, {
+  description: 'Do laundry',
+  completed: false,
+  id: 2
+}, {
+  description: 'Take out trash',
+  completed: false,
+  id: 3
+}];
+var todoListContainer = document.getElementById('todo');
+function renderTodoList() {
+  todoListContainer.innerHTML = '';
+  tasks.forEach(function (task) {
+    var listItem = document.createElement('div');
+    listItem.className = 'todo-item';
+    listItem.innerHTML = "\n      <span class=\"description\">".concat(task.description, "</span>\n      <span class=\"completed\">").concat(task.completed ? 'Completed' : 'Incomplete', "</span>\n    ");
+    todoListContainer.appendChild(listItem);
+  });
+}
+renderTodoList();
 
 /***/ }),
 
@@ -36,10 +56,18 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `* {
-  background-color: aquamarine;
+___CSS_LOADER_EXPORT___.push([module.id, `body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  font-family: 'Roboto', sans-serif;
+  font-size: 34px;
+  margin: 0;
+  padding: 0;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;EACE,4BAA4B;AAC9B","sourcesContent":["* {\r\n  background-color: aquamarine;\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,sBAAsB;EACtB,uBAAuB;EACvB,mBAAmB;EACnB,yBAAyB;EACzB,iCAAiC;EACjC,eAAe;EACf,SAAS;EACT,UAAU;AACZ","sourcesContent":["body {\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\r\n  background-color: #f5f5f5;\r\n  font-family: 'Roboto', sans-serif;\r\n  font-size: 34px;\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -484,16 +512,6 @@ function styleTagTransform(css, styleElement) {
 }
 module.exports = styleTagTransform;
 
-/***/ }),
-
-/***/ "./src/assets/laughing.svg":
-/*!*********************************!*\
-  !*** ./src/assets/laughing.svg ***!
-  \*********************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__.p + "laughing.svg";
-
 /***/ })
 
 },
@@ -502,4 +520,4 @@ module.exports = __webpack_require__.p + "laughing.svg";
 /******/ var __webpack_exports__ = (__webpack_exec__("./src/index.js"));
 /******/ }
 ]);
-//# sourceMappingURL=bundle66349c14fd60e490c48a.js.map
+//# sourceMappingURL=bundle2a7df74e617769ef98e8.js.map
