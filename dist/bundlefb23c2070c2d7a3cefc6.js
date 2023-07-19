@@ -36,7 +36,7 @@ function renderTodoList() {
   tasks.forEach(function (task) {
     var listItem = document.createElement('div');
     listItem.className = 'todo-item';
-    listItem.innerHTML = "\n      <div class=\"description\">".concat(task.description, "</div>\n      <div><i class=\"fa-solid fa-ellipsis-vertical\"></i></div>\n    ");
+    listItem.innerHTML = "\n      <div class=\"checkbox\"><i class=\"fa-regular fa-square\"></i></div>\n      <div class=\"description\">".concat(task.description, "</div>\n      <div class=\"elipsis\"><i class=\"fa-solid fa-ellipsis-vertical\"></i></div>\n    ");
     todoListContainer.appendChild(listItem);
   });
 }
@@ -583,4 +583,4 @@ module.exports = styleTagTransform;
 /******/ var __webpack_exports__ = (__webpack_exec__("./src/index.js"));
 /******/ }
 ]);
-//# sourceMappingURL=bundle03b3854ff43fb2a35033.js.map
+//# sourceMappingURL=bundlefb23c2070c2d7a3cefc6.js.map

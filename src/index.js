@@ -18,10 +18,9 @@ function renderTodoList() {
     listItem.innerHTML = `
       <div class="checkbox"><i class="fa-regular fa-square"></i></div>
       <div class="description">${task.description}</div>
-      <div><i class="fa-solid fa-ellipsis-vertical"></i></div>
+      <div class="elipsis"><i class="fa-solid fa-ellipsis-vertical"></i></div>
     `;
     todoListContainer.appendChild(listItem);
   });
 }
-
 renderTodoList();

@@ -40,7 +40,6 @@ div#todo {
   padding: 10px;
   flex-direction: row;
   border: 1px solid black;
-  justify-content: space-between;
 }
 
 div#wrapper {
@@ -64,4 +63,12 @@ div#clear {
   padding: 20px;
   font-size: medium;
   background-color: coral;
+}
+
+.checkbox {
+  padding-right: 10px;
+}
+
+.description {
+  flex-grow: 2;
 }
