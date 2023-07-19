@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: aquamarine;
+  background-color: #e5f1f3;
   flex-direction: column;
   align-items: center;
   font-family: 'Roboto', sans-serif;
@@ -44,7 +44,7 @@ div#todo {
 
 div#wrapper {
   width: 80vw;
-  background-color: skyblue;
+  background-color: #abd8c9;
   margin: 10vw;
 }
 
@@ -59,10 +59,11 @@ div#addList {
 }
 
 div#clear {
+  color: white;
   align-items: center;
   padding: 20px;
   font-size: medium;
-  background-color: coral;
+  background-color: #58B294;
 }
 
 .checkbox {
