@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   mode: 'development',
@@ -28,8 +28,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.sass$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
       {
         //bable loader will make your project functional on all browsers
@@ -49,6 +49,9 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    runtimeChunk: 'single',
+  },
   //this will build the dist html file based on the template file
   plugins: [
     new HtmlWebpackPlugin({
@@ -56,6 +59,6 @@ module.exports = {
       filename: 'index.html',
       template: 'src/template.html',
     }),
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
   ],
 };
