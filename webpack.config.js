@@ -1,18 +1,18 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin =
+//   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
   mode: 'development',
   entry: {
-    // __dirname will start in the current directory
     bundle: path.resolve(__dirname, 'src/index.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name][contenthash].js',
     clean: true,
-    assetModuleFilename: '[name][ext]',
+    // assetModuleFilename: '[name][ext]',
   },
   devtool: 'source-map',
   devServer: {
@@ -28,11 +28,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.sass$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
       {
-        //bable loader will make your project functional on all browsers
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
@@ -42,20 +41,18 @@ module.exports = {
           },
         },
       },
-      //this will load all images
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
     ],
   },
-  //this will build the dist html file based on the template file
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Webpack App',
       filename: 'index.html',
       template: 'src/template.html',
     }),
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
   ],
 };
