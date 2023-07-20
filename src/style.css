@@ -18,6 +18,14 @@ h2 {
   font-size: 1rem;
 }
 
+img {
+  width: 15px;
+}
+
+i {
+  color: grey;
+}
+
 div#todoHeading {
   display: flex;
   flex-direction: row;

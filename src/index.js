@@ -1,4 +1,5 @@
 import './style.css';
+import arrow from './assets/arrow.svg';
 
 const tasks = [
   { completed: false, description: 'Add tickbox', index: 4 },
@@ -8,6 +9,11 @@ const tasks = [
 ];
 
 const todoListContainer = document.getElementById('todo');
+
+document.getElementById('addList')
+const arrowIcon = new Image();
+arrowIcon.src = arrow;
+document.getElementById('addList').appendChild(arrowIcon);
 
 function renderTodoList() {
   todoListContainer.innerHTML = '';
