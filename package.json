@@ -2,12 +2,11 @@
   "name": "webpacktemplate",
   "version": "1.0.0",
   "description": "This  repo can be used for projects that use webpack bundling.",
-  "private": true,
+  "main:": "index.js",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch",
-    "start": "webpack serve --open --hot",
-    "server": "node server.js"
+    "start": "webpack --mode development --watch",
+    "build": "webpack --mode production",
+    "dev": "webpack serve --open --watch"
   },
   "keywords": [],
   "author": "",

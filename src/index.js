@@ -1,4 +1,4 @@
-import './style.css';
+import '../src/style.css'
 import arrow from './assets/arrow.svg';
 
 const tasks = [

@@ -1,9 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-}
+/* src/styles.css */
 
 body {
   background-color: #f6f6f6;
@@ -44,6 +39,7 @@ div#todo {
 }
 
 .todo-item {
+  display: flex;
   font-size: medium;
   padding: 15px 10px;
   flex-direction: row;
