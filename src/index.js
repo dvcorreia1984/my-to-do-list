@@ -10,7 +10,7 @@ const tasks = [
 
 const todoListContainer = document.getElementById('todo');
 
-document.getElementById('addList')
+document.getElementById('addList');
 const arrowIcon = new Image();
 arrowIcon.src = arrow;
 document.getElementById('addList').appendChild(arrowIcon);
