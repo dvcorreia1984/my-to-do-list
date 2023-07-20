@@ -54,6 +54,7 @@ div#wrapper {
 }
 
 div#addList {
+  display: flex;
   justify-content: space-between;
   flex-direction: row;
   color: grey;
@@ -64,6 +65,8 @@ div#addList {
 }
 
 div#clear {
+  display: flex;
+  justify-content: center;
   border: 1px solid lightgray;
   color: grey;
   align-items: center;
