@@ -49,7 +49,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Development',
       filename: 'index.html',
-      template: 'src/template.html'
+      template: 'src/template.html',
     }),
     // new BundleAnalyzerPlugin(),
   ],
