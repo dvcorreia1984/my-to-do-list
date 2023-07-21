@@ -56,6 +56,28 @@ div#todo {
   border: 1px solid lightgray;
 }
 
+.todo-item i.fa.fa-trash {
+  color: lightgray;
+  visibility: hidden;
+}
+
+.todo-item:hover {
+  background-color: lightyellow;
+}
+
+.todo-item:hover i.fa.fa-trash {
+  visibility: visible;
+  color: grey;
+  font-size: medium;
+}
+
+.todo-item:hover i.fa.fa-trash:hover {
+  visibility: visible;
+  color: red;
+  font-size: larger;
+  cursor: pointer;
+}
+
 div#wrapper {
   width: 80vw;
   background-color: white;
@@ -100,4 +122,8 @@ input#formInput {
 
 button#formButton {
   padding: 5px;
+}
+
+.delete {
+  padding-right: 10px;
 }

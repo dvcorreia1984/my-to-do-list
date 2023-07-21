@@ -19,14 +19,8 @@ export function addTask() {
   });
 }
 
-export function removeTask() {
-  const todoListContainer = document.getElementById('todo');
-  todoListContainer.addEventListener('click', (event) => {
-    if (event.target.className === 'todo-item') {
-      const index = event.target.id;
-      tasks.splice(index - 1, 1);
-      renderTodoList();
-    }
-  });
-}
+
+
+
+
 

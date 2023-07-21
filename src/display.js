@@ -39,7 +39,7 @@ const arrowIcon = new Image();
 arrowIcon.src = arrow;
 document.getElementById('formButton').appendChild(arrowIcon);
 
-const todoList = document.createElement('div');
+const todoList = document.createElement('form');
 todoList.id = 'todo';
 todoList.className = 'todo';
 document.getElementById('wrapper').appendChild(todoList);
@@ -61,10 +61,20 @@ export function renderTodoList() {
     listItem.innerHTML = `
       <div class="checkbox"><i class="fa-regular fa-square"></i></div>
       <div class="description">${task.description}</div>
+      <div id="delete" class="delete"><i class="fa fa-trash" aria-hidden="true"></i></div>
       <div class="elipsis"><i class="fa-solid fa-ellipsis-vertical"></i></div>
     `;
     todoListContainer.appendChild(listItem);
   });
 }
+
+
+
+
+
+
+
+
+
 
 
