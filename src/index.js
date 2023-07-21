@@ -1,6 +1,6 @@
 import './style.css';
 import arrow from './assets/arrow.svg';
-import { addTask } from './add-remove.js';
+import { addTask, removeTask } from './add-remove.js';
 import { renderTodoList } from './display.js';
 
 // create Class of task 
@@ -16,7 +16,5 @@ export const tasks = localStorage.getItem('tasks') ? JSON.parse(localStorage.get
 
 addTask();
 renderTodoList();
-
-
-
+removeTask();
 
