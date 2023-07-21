@@ -12,14 +12,11 @@ export class Task {
   }
 }
 
-// Tasks array
-export const tasks = [];
-
-// Add to local storage
-localStorage.setItem('tasks', JSON.stringify(tasks));
+export const tasks = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
 
 addTask();
 renderTodoList();
+
 
 
 

@@ -14,6 +14,7 @@ export function addTask() {
     }
     const newTask = new Task(false, inputValue, tasks.length + 1);
     tasks.push(newTask);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
     renderTodoList();
     formInputValue.value = '';
   });
