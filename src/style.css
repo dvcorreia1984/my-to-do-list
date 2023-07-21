@@ -9,6 +9,10 @@ body {
   margin: 0;
 }
 
+form {
+  padding: 2px;
+}
+
 h2 {
   font-size: 1rem;
 }
@@ -19,6 +23,11 @@ img {
 
 i {
   color: lightgray;
+}
+
+input {
+  padding: 0;
+  width: 70vw;
 }
 
 div#todoHeading {
@@ -81,4 +90,9 @@ div#clear {
 
 .description {
   flex-grow: 2;
+}
+
+input#formInput {
+  border: none;
+  padding: 15px 10px;
 }
