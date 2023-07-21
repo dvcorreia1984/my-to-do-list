@@ -24,7 +24,6 @@ todoHeadingIcon.className = 'fas fa-sync-alt';
 document.getElementById('todoHeading').appendChild(todoHeadingIcon);
 
 // Add input field
-
 const formContainer = document.createElement('div');
 formContainer.id = 'form-container';
 document.getElementById('wrapper').appendChild(formContainer);
@@ -37,11 +36,40 @@ const formInput = document.createElement('input');
 formInput.id = 'formInput';
 formInput.type = 'text';
 formInput.placeholder = 'Add to your list...';
+formInput.value = '';
 document.getElementById('form').appendChild(formInput);
+
+const formButton = document.createElement('button');
+formButton.id = 'formButton';
+formButton.type = 'submit';
+document.getElementById('form').appendChild(formButton);
 
 const arrowIcon = new Image();
 arrowIcon.src = arrow;
-document.getElementById('form').appendChild(arrowIcon);
+document.getElementById('formButton').appendChild(arrowIcon);
+
+
+// Add task to list
+const formInputValue = document.getElementById('formInput');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const inputValue = formInputValue.value.trim();
+
+  if (inputValue === '') {
+    return;
+  }
+
+  const newTask = {
+    completed: false,
+    description: formInputValue.value,
+    index: tasks.length + 1,
+  };
+  tasks.push(newTask);
+  renderTodoList();
+  formInputValue.value = '';
+});
+
 
 const todoList = document.createElement('div');
 todoList.id = 'todo';
