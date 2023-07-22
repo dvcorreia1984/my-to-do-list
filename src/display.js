@@ -1,5 +1,5 @@
 // display.js
-// eslint-disable-next-line import/no-cycle
+
 import { tasks } from './add-remove.js';
 import arrow from './assets/arrow.svg';
 
