@@ -1,6 +1,5 @@
 // add-remove.js
 
-import { render } from 'sass';
 import { renderTodoList } from './display.js';
 
 export class Task {
@@ -32,13 +31,12 @@ export function addTask() {
   });
 }
 
-
 export function removeTask() {
   const todoListContainer = document.getElementById('todo');
-  
+
   // Remove previous event listener before adding new ones
   todoListContainer.removeEventListener('click', handleTrashIconClick);
-  
+
   // Add event listener using event delegation
   todoListContainer.addEventListener('click', handleTrashIconClick);
 
@@ -66,7 +64,7 @@ function updateTaskIndexes() {
 export function editTask(index, newDescription) {
   tasks[index].description = newDescription;
   localStorage.setItem('tasks', JSON.stringify(tasks));
-  renderTodoList(); 
+  renderTodoList();
 }
 
 export function listenForEdit() {
@@ -83,8 +81,6 @@ function handleTaskDescriptionEdit(event) {
       const newDescription = descriptionElement.textContent;
 
       tasks[taskIndex].description = newDescription;
-
-      // localStorage.setItem('tasks', JSON.stringify(tasks));
     }
   }
 }
