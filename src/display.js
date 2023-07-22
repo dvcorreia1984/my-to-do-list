@@ -1,5 +1,5 @@
 // display.js
-import { add } from 'lodash';
+
 import { tasks } from './add-remove.js';
 import arrow from './assets/arrow.svg';
 
@@ -24,7 +24,26 @@ export default function renderTodoList() {
       </div>
     `;
     todoListContainer.appendChild(listItem);
-    addEventListenersAndUpdateTasks();
+
+    // Add event listener to each checkbox when rendering
+    const checkbox = listItem.querySelector(`#checkbox_${task.index}`);
+    checkbox.addEventListener('change', () => {
+      if (checkbox.checked === true) {
+        // change style of description to line-through
+        const description = listItem.querySelector('.description');
+        description.style.textDecoration = 'line-through';
+        description.style.color = '#BDBDBD';
+        task.completed = true;
+      } else {
+        // change style of description to normal
+        const description = listItem.querySelector('.description');
+        description.style.textDecoration = 'none';
+        description.style.color = '#333333';
+        task.completed = false;
+      }
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    });
+  });
 }
 
 const todoHeading = document.createElement('div');
