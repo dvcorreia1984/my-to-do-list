@@ -62,7 +62,7 @@ export function renderTodoList() {
     listItem.id = task.index; // Set the id as the index
     listItem.innerHTML = `
       <div class="checkbox"><i class="fa-regular fa-square"></i></div>
-      <div class="description">${task.description}</div>
+      <div class="description" contenteditable="true">${task.description}</div>
       <div id="delete" class="delete"><i class="fa fa-trash" aria-hidden="true"></i></div>
       <div class="elipsis"><i class="fa-solid fa-ellipsis-vertical"></i></div>
     `;

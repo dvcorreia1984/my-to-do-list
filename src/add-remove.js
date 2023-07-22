@@ -1,4 +1,5 @@
 // add-remove.js
+
 import { renderTodoList } from './display.js';
 
 export class Task {
@@ -10,8 +11,6 @@ export class Task {
 }
 
 export const tasks = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
-
-console.log(tasks);
 
 export function addTask() {
   const formInputValue = document.getElementById('formInput');
@@ -31,7 +30,6 @@ export function addTask() {
   });
 }
 
-
 export function removeTask() {
   const todoListContainer = document.getElementById('todo');
   
@@ -46,10 +44,44 @@ export function removeTask() {
       const listItem = event.target.closest('.todo-item');
       if (listItem) {
         const taskIndex = parseInt(listItem.id, 10);
-        tasks.splice(taskIndex, 1); // Correctly remove the task
+        tasks.splice(taskIndex - 1, 1);
+        updateTaskIndexes(); // Update task indexes after deletion
         localStorage.setItem('tasks', JSON.stringify(tasks));
         renderTodoList();
       }
     }
   }
 }
+
+function updateTaskIndexes() {
+  tasks.forEach((task, index) => {
+    task.index = index + 1;
+  });
+}
+
+export function editTask(index, newDescription) {
+  tasks[index].description = newDescription;
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  renderTodoList(); 
+}
+
+export function listenForEdit() {
+  const todoListContainer = document.getElementById('todo');
+  todoListContainer.addEventListener('input', handleTaskDescriptionEdit);
+}
+
+function handleTaskDescriptionEdit(event) {
+  const descriptionElement = event.target;
+  if (descriptionElement.classList.contains('description')) {
+    const listItem = descriptionElement.closest('.todo-item');
+    if (listItem) {
+      const taskIndex = parseInt(listItem.id, 10);
+      const newDescription = descriptionElement.textContent;
+
+      tasks[taskIndex].description = newDescription;
+
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+  }
+}
+
