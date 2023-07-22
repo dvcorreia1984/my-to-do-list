@@ -58,47 +58,6 @@ clearAll.addEventListener('click', () => {
     tasks.splice(taskIndex, 1);
   });
   localStorage.setItem('tasks', JSON.stringify(tasks));
+  // eslint-disable-next-line no-undef
   renderTodoList();
 });
-
-// Render todo list
-export default function renderTodoList() {
-  const todoListContainer = document.getElementById('todo');
-  todoListContainer.innerHTML = '';
-  tasks.sort((a, b) => a.index - b.index);
-  tasks.forEach((task) => { // Update id when rendering the todo list
-    const listItem = document.createElement('div');
-    listItem.className = 'todo-item';
-    listItem.innerHTML = `
-      <div class="checkbox-container">
-        <input type="checkbox" id="checkbox_${task.index}" class="checkbox">
-      </div>
-      <div class="description" contenteditable="true">${task.description}</div>
-      <div id="delete" class="delete">
-        <i class="fa fa-trash" aria-hidden="true"></i>
-      </div>
-      <div class="elipsis">
-        <i class="fa-solid fa-ellipsis-vertical"></i>
-      </div>
-    `;
-    todoListContainer.appendChild(listItem);
-
-    // Add event listener to each checkbox when rendering
-    const checkbox = listItem.querySelector(`#checkbox_${task.index}`);
-    checkbox.addEventListener('change', () => {
-      if (checkbox.checked === true) {
-        // change style of description to line-through
-        const description = listItem.querySelector('.description');
-        description.style.textDecoration = 'line-through';
-        description.style.color = '#BDBDBD';
-        task.completed = true;
-      } else {
-        // change style of description to normal
-        const description = listItem.querySelector('.description');
-        description.style.textDecoration = 'none';
-        description.style.color = '#333333';
-        task.completed = false;
-      }
-    });
-  });
-}
