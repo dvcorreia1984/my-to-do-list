@@ -127,3 +127,7 @@ button#formButton {
 .delete {
   padding-right: 10px;
 }
+
+input#checkbox {
+  width: 20px;
+}
