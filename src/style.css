@@ -9,16 +9,26 @@ body {
   margin: 0;
 }
 
+form {
+  padding: 2px;
+}
+
 h2 {
   font-size: 1rem;
 }
 
 img {
-  width: 15px;
+  height: 20px;
+  width: 20px;
 }
 
 i {
   color: lightgray;
+}
+
+input {
+  padding: 0;
+  width: 70vw;
 }
 
 div#todoHeading {
@@ -44,6 +54,28 @@ div#todo {
   padding: 15px 10px;
   flex-direction: row;
   border: 1px solid lightgray;
+}
+
+.todo-item i.fa.fa-trash {
+  color: lightgray;
+  visibility: hidden;
+}
+
+.todo-item:hover {
+  background-color: lightyellow;
+}
+
+.todo-item:hover i.fa.fa-trash {
+  visibility: visible;
+  color: grey;
+  font-size: medium;
+}
+
+.todo-item:hover i.fa.fa-trash:hover {
+  visibility: visible;
+  color: red;
+  font-size: larger;
+  cursor: pointer;
 }
 
 div#wrapper {
@@ -81,4 +113,17 @@ div#clear {
 
 .description {
   flex-grow: 2;
+}
+
+input#formInput {
+  border: none;
+  padding: 15px 10px;
+}
+
+button#formButton {
+  padding: 5px;
+}
+
+.delete {
+  padding-right: 10px;
 }

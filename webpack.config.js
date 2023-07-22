@@ -1,16 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const BundleAnalyzerPlugin =
-//   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
     bundle: path.resolve(__dirname, 'src/index.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name][contenthash].js',
+    filename: '[name].js',
     clean: true,
     // assetModuleFilename: '[name][ext]',
   },
@@ -53,6 +51,5 @@ module.exports = {
       filename: 'index.html',
       template: 'src/template.html',
     }),
-    // new BundleAnalyzerPlugin(),
   ],
 };
