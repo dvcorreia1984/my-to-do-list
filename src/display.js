@@ -1,6 +1,5 @@
 // display.js
 
-// eslint-disable-next-line import/no-cycle
 import { tasks } from './add-remove.js';
 import arrow from './assets/arrow.svg';
 
@@ -101,6 +100,5 @@ clearAll.addEventListener('click', () => {
     tasks.splice(taskIndex, 1);
   });
   localStorage.setItem('tasks', JSON.stringify(tasks));
-  // eslint-disable-next-line no-undef
   renderTodoList();
 });

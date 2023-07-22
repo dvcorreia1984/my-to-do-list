@@ -1,5 +1,6 @@
+import tasks from './add-remove.js';
+
 export default function addEventListenersAndUpdateTasks() {
-  // eslint-disable-next-line no-undef
   tasks.forEach((task) => {
     const listItem = document.querySelector(`#checkbox_${task.index}`).closest('.todo-item');
     const checkbox = listItem.querySelector(`#checkbox_${task.index}`);
@@ -18,8 +19,6 @@ export default function addEventListenersAndUpdateTasks() {
         description.style.color = '#333333';
         task.completed = false;
       }
-
-      // eslint-disable-next-line no-undef
       localStorage.setItem('tasks', JSON.stringify(tasks));
     });
   });

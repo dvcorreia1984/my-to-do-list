@@ -1,6 +1,5 @@
 // add-remove.js
 
-// eslint-disable-next-line import/no-cycle
 import renderTodoList from './display.js';
 
 export class Task {

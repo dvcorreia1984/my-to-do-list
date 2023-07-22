@@ -107,7 +107,6 @@ button#clear {
 }
 
 button#clear :hover {
-  /* stylelint-disable-next-line declaration-colon-space-after */
   background-color: red;
   color: white;
 }
