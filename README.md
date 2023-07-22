@@ -29,8 +29,7 @@
 - [❓ FAQ](#faq)
 - [📝 License](#license)
 
-## 📖 To-do List 
-**To-do-list** is an app that helps you to see what tasks you have to complete. A checkbox is used to update tasks. 
+## 📖 To-do List is an app that helps you to see what tasks you have to complete. A checkbox is used to update tasks. 
 
 ## 🛠 Built With <a name="built-with">HTML, CSS and JavaScript</a>
 
@@ -60,7 +59,7 @@ To get a local copy up and running, follow these steps:
 
 - Open your Terminal in your VSCode.
 - Navigate to the desired directory [folder] to which you want to clone the repository to
-- [Copy & Paste] Git clone you find in the code button https://github.com/GeekyHacks/AwesomeBook.git
+- [Copy & Paste] the Git clone you find in the code button https://github.com/GeekyHacks/AwesomeBook.git
 
 ### Prerequisites
 
@@ -141,7 +140,7 @@ I would like to thank...
 
 Can I clone this project?\*\*
 
-- Of course you can as long as you fork it and star it
+- Of course, you can as long as you fork it and star it
 
 Can I contribute to this project?\*\*
 

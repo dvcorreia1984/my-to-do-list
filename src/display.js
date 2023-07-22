@@ -45,7 +45,7 @@ todoList.id = 'todo';
 todoList.className = 'todo';
 document.getElementById('wrapper').appendChild(todoList);
 
-const clear = document.createElement('div');
+const clear = document.createElement('button');
 clear.id = 'clear';
 clear.innerHTML = 'Clear all completed!';
 document.getElementById('wrapper').appendChild(clear);
@@ -59,17 +59,35 @@ export default function renderTodoList() {
     const listItem = document.createElement('div');
     listItem.className = 'todo-item';
     listItem.innerHTML = `
-      <div class="checkbox">
-        <input type="checkbox" id="checkbox" ${tasks.completed ? 'checked' : ''}>
-      </i></div>
+      <div class="checkbox-container">
+        <input type="checkbox" id="checkbox_${task.index}" class="checkbox">
+      </div>
       <div class="description" contenteditable="true">${task.description}</div>
       <div id="delete" class="delete">
-      <i class="fa fa-trash" aria-hidden="true">
-        </i></div>
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </div>
       <div class="elipsis">
         <i class="fa-solid fa-ellipsis-vertical"></i>
       </div>
     `;
     todoListContainer.appendChild(listItem);
+
+    // Add event listener to each checkbox when rendering
+    const checkbox = listItem.querySelector(`#checkbox_${task.index}`);
+    checkbox.addEventListener('change', () => {
+      if (checkbox.checked === true) {
+        // change style of description to line-through
+        const description = listItem.querySelector('.description');
+        description.style.textDecoration = 'line-through';
+        description.style.color = '#BDBDBD';
+        task.completed = true;
+      } else {
+        // change style of description to normal
+        const description = listItem.querySelector('.description');
+        description.style.textDecoration = 'none';
+        description.style.color = '#333333';
+        task.completed = false;
+      }
+    });
   });
 }
