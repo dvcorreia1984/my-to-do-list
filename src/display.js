@@ -1,8 +1,8 @@
 // display.js
+// eslint-disable-next-line import/no-cycle
 import { tasks } from './add-remove.js';
 import arrow from './assets/arrow.svg';
 
-const wrapper = document.getElementById('wrapper');
 const todoHeading = document.createElement('div');
 todoHeading.id = 'todoHeading';
 document.getElementById('wrapper').appendChild(todoHeading);
@@ -50,11 +50,11 @@ clear.innerHTML = 'Clear all completed!';
 document.getElementById('wrapper').appendChild(clear);
 
 // Render todo list
-export function renderTodoList() {
+export default function renderTodoList() {
   const todoListContainer = document.getElementById('todo');
   todoListContainer.innerHTML = '';
   tasks.sort((a, b) => a.index - b.index);
-  tasks.forEach((task, index) => { // Update id when rendering the todo list
+  tasks.forEach((task) => { // Update id when rendering the todo list
     const listItem = document.createElement('div');
     listItem.className = 'todo-item';
     listItem.innerHTML = `
@@ -66,14 +66,3 @@ export function renderTodoList() {
     todoListContainer.appendChild(listItem);
   });
 }
-
-
-
-
-
-
-
-
-
-
-

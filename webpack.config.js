@@ -53,6 +53,8 @@ module.exports = {
       filename: 'index.html',
       template: 'src/template.html',
     }),
+    // new StylelintPlugin(options),
+    //   type context = './.';
     // new BundleAnalyzerPlugin(),
   ],
 };
