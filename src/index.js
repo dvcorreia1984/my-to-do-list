@@ -7,13 +7,3 @@ document.addEventListener('DOMContentLoaded', () => {
   renderTodoList();
   removeTask();
 });
-
-const checkboxes = document.querySelectorAll('.checkbox');
-
-  // Add an event listener to each checkbox
-  checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('click', () => {
-      // Log the state of the checkbox (checked or unchecked)
-      console.log(`Checkbox ${checkbox.id} is checked: ${checkbox.checked}`);
-    });
-  });

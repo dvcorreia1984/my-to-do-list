@@ -50,6 +50,17 @@ clear.id = 'clear';
 clear.innerHTML = 'Clear all completed!';
 document.getElementById('wrapper').appendChild(clear);
 
+const clearAll = document.getElementById('clear');
+clearAll.addEventListener('click', () => {
+  const completedTasks = tasks.filter((task) => task.completed === true);
+  completedTasks.forEach((task) => {
+    const taskIndex = tasks.indexOf(task);
+    tasks.splice(taskIndex, 1);
+  });
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  renderTodoList();
+});
+
 // Render todo list
 export default function renderTodoList() {
   const todoListContainer = document.getElementById('todo');
