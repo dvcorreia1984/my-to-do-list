@@ -1,8 +1,31 @@
 // display.js
-
-// eslint-disable-next-line import/no-cycle
+import { add } from 'lodash';
 import { tasks } from './add-remove.js';
 import arrow from './assets/arrow.svg';
+
+// Render todo list
+export default function renderTodoList() {
+  const todoListContainer = document.getElementById('todo');
+  todoListContainer.innerHTML = '';
+  tasks.sort((a, b) => a.index - b.index);
+  tasks.forEach((task) => { // Update id when rendering the todo list
+    const listItem = document.createElement('div');
+    listItem.className = 'todo-item';
+    listItem.innerHTML = `
+      <div class="checkbox-container">
+        <input type="checkbox" id="checkbox_${task.index}" class="checkbox">
+      </div>
+      <div class="description" contenteditable="true">${task.description}</div>
+      <div id="delete" class="delete">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </div>
+      <div class="elipsis">
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+      </div>
+    `;
+    todoListContainer.appendChild(listItem);
+    addEventListenersAndUpdateTasks();
+}
 
 const todoHeading = document.createElement('div');
 todoHeading.id = 'todoHeading';
