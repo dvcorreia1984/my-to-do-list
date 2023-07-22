@@ -54,12 +54,9 @@ export function renderTodoList() {
   const todoListContainer = document.getElementById('todo');
   todoListContainer.innerHTML = '';
   tasks.sort((a, b) => a.index - b.index);
-  
   tasks.forEach((task, index) => { // Update id when rendering the todo list
-    task.index = index; // Update the index of the task
     const listItem = document.createElement('div');
     listItem.className = 'todo-item';
-    listItem.id = task.index; // Set the id as the index
     listItem.innerHTML = `
       <div class="checkbox"><i class="fa-regular fa-square"></i></div>
       <div class="description" contenteditable="true">${task.description}</div>

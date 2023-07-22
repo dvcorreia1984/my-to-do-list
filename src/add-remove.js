@@ -1,5 +1,6 @@
 // add-remove.js
 
+import { render } from 'sass';
 import { renderTodoList } from './display.js';
 
 export class Task {
@@ -17,18 +18,20 @@ export function addTask() {
   const form = document.getElementById('form');
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-
     const inputValue = formInputValue.value.trim();
     if (inputValue === '') {
       return;
     }
     const newTask = new Task(false, inputValue, tasks.length + 1);
     tasks.push(newTask);
+    console.log(newTask);
     localStorage.setItem('tasks', JSON.stringify(tasks));
-    renderTodoList();
+    localStorage.setItem('newTask', JSON.stringify(newTask));
     formInputValue.value = '';
+    renderTodoList();
   });
 }
+
 
 export function removeTask() {
   const todoListContainer = document.getElementById('todo');
@@ -43,6 +46,7 @@ export function removeTask() {
     if (event.target.classList.contains('fa-trash')) {
       const listItem = event.target.closest('.todo-item');
       if (listItem) {
+        console.log(listItem.id);
         const taskIndex = parseInt(listItem.id, 10);
         tasks.splice(taskIndex - 1, 1);
         updateTaskIndexes(); // Update task indexes after deletion
@@ -80,8 +84,7 @@ function handleTaskDescriptionEdit(event) {
 
       tasks[taskIndex].description = newDescription;
 
-      localStorage.setItem('tasks', JSON.stringify(tasks));
+      // localStorage.setItem('tasks', JSON.stringify(tasks));
     }
   }
 }
-
