@@ -1,6 +1,17 @@
 // add-remove.js
-import { Task, tasks } from './index.js';
 import { renderTodoList } from './display.js';
+
+export class Task {
+  constructor(completed, description, index) {
+    this.completed = completed;
+    this.description = description;
+    this.index = index;
+  }
+}
+
+export const tasks = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
+
+console.log(tasks);
 
 export function addTask() {
   const formInputValue = document.getElementById('formInput');
@@ -20,19 +31,25 @@ export function addTask() {
   });
 }
 
-console.log(tasks);
 
 export function removeTask() {
-  const trashIcon = document.getElementsByClassName('fa-trash');
-  for (let i = 0; i < trashIcon.length; i += 1) {
-    trashIcon[i].addEventListener('click', () => {
-      const listItem = trashIcon[i].closest('.todo-item');
+  const todoListContainer = document.getElementById('todo');
+  
+  // Remove previous event listener before adding new ones
+  todoListContainer.removeEventListener('click', handleTrashIconClick);
+  
+  // Add event listener using event delegation
+  todoListContainer.addEventListener('click', handleTrashIconClick);
+
+  function handleTrashIconClick(event) {
+    if (event.target.classList.contains('fa-trash')) {
+      const listItem = event.target.closest('.todo-item');
       if (listItem) {
-        const taskIndex = listItem.id;
-        tasks.splice(taskIndex - 1, 1);
+        const taskIndex = parseInt(listItem.id, 10);
+        tasks.splice(taskIndex, 1); // Correctly remove the task
         localStorage.setItem('tasks', JSON.stringify(tasks));
         renderTodoList();
       }
-    });
+    }
   }
 }
