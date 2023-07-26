@@ -10,7 +10,11 @@ export class Task {
   }
 }
 
-export const tasks = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
+function loadTasks() {
+  return localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
+}
+
+export const tasks = loadTasks();
 
 export function addTask() {
   const formInputValue = document.getElementById('formInput');
@@ -24,7 +28,6 @@ export function addTask() {
     const newTask = new Task(false, inputValue, tasks.length + 1);
     tasks.push(newTask);
     localStorage.setItem('tasks', JSON.stringify(tasks));
-    localStorage.setItem('newTask', JSON.stringify(newTask));
     formInputValue.value = '';
     renderTodoList();
   });

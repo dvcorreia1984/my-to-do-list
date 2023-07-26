@@ -1,7 +1,6 @@
 // display.js
 
-import { tasks } from './add-remove.js';
-import arrow from './assets/arrow.svg';
+import tasks from './add-remove.js';
 
 // Render todo list
 export default function renderTodoList() {
@@ -82,10 +81,6 @@ document.getElementById('form').appendChild(formButton);
 const plusIcon = document.createElement('i');
 plusIcon.className = 'fas fa-plus';
 document.getElementById('formButton').appendChild(plusIcon);
-
-// const arrowIcon = new Image();
-// arrowIcon.src = arrow;
-// document.getElementById('formButton').appendChild(arrowIcon);
 
 const todoList = document.createElement('form');
 todoList.id = 'todo';
