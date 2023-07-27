@@ -1,6 +1,6 @@
 // add-remove.js
 
-import { renderTodoList, handleFormSubmit } from './display.js';
+import { renderTodoList } from './display.js';
 
 export class Task {
   constructor(completed, description, index) {
@@ -17,12 +17,12 @@ export function loadTasks() {
 export const tasks = loadTasks();
 
 export function addTask(inputValue, tasks) {
-  loadTasks();
   if (inputValue === '') {
-    return;
+    return tasks;
   }
   const newTask = new Task(false, inputValue, tasks.length + 1);
   tasks.push(newTask);
+  return tasks;
 }
 
 export function handleTaskDescriptionEdit(event) {

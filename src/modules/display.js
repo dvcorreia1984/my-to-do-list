@@ -53,6 +53,7 @@ export function handleFormSubmit(event) {
   // const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   addTask(formInputValue, tasks);
   document.getElementById('formInput').value = '';
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 const wrapper = document.createElement('div');
