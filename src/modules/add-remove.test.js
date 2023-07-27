@@ -13,9 +13,7 @@ describe('addTask', () => {
     const inputValue = '';
     const initialTasks = [];
     const expectedTasks = [];
-
     const result = addTask(inputValue, initialTasks);
-
     expect(result).toEqual(expectedTasks);
   });
 
@@ -23,9 +21,7 @@ describe('addTask', () => {
     const inputValue = 'New Task';
     const initialTasks = [];
     const expectedTasks = [new Task(false, 'New Task', 1)];
-
     const result = addTask(inputValue, initialTasks);
-
     expect(result).toEqual(expectedTasks);
   });
 

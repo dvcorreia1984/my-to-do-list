@@ -1,6 +1,6 @@
 // display.js
-
-import { tasks, addTask } from './add-remove.js';
+import { tasks } from './storage.js';
+import { addTask } from './add-remove.js';
 
 // Render todo list
 export function renderTodoList() {

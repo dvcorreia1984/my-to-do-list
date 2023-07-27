@@ -1,7 +1,4 @@
 // add-remove.js
-
-import { renderTodoList } from './display.js';
-
 export class Task {
   constructor(completed, description, index) {
     this.completed = completed;
@@ -9,12 +6,6 @@ export class Task {
     this.index = index;
   }
 }
-
-export function loadTasks() {
-  return localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
-}
-
-export const tasks = loadTasks();
 
 export function addTask(inputValue, tasks) {
   if (inputValue === '') {
