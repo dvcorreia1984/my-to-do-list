@@ -1,5 +1,3 @@
-import { remove } from "lodash";
-
 // add-remove.js
 export class Task {
   constructor(completed, description, index) {

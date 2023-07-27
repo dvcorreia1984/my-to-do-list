@@ -1,7 +1,6 @@
 // display.js
 import { tasks } from './storage.js';
 import { addTask, removeTask } from './add-remove.js';
-import { remove } from 'lodash';
 
 // Render todo list
 export function renderTodoList() {
@@ -32,7 +31,6 @@ export function renderTodoList() {
       trashIcon.closest('.todo-item').remove();
     });
 
-
     // Add event listener to each checkbox when rendering
     const checkbox = listItem.querySelector(`#checkbox_${task.index}`);
 
@@ -54,8 +52,6 @@ export function renderTodoList() {
   });
 }
 
-
-
 export function handleFormSubmit(event) {
   event.preventDefault();
   const formInputValue = document.getElementById('formInput').value.trim();
@@ -66,7 +62,6 @@ export function handleFormSubmit(event) {
   renderTodoList();
 }
 
-const wrapper = document.createElement('div');
 const todoHeading = document.createElement('div');
 todoHeading.id = 'todoHeading';
 document.getElementById('wrapper').appendChild(todoHeading);

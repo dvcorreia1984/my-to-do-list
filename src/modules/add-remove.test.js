@@ -1,7 +1,6 @@
 // add-remove.test.js
 
-import { before } from 'lodash';
-import { addTask, removeTask, Task } from './add-remove';
+import { addTask, removeTask, Task } from './add-remove.js';
 
 // Test the addTask function
 describe('addTask', () => {
