@@ -16,18 +16,7 @@ export function addTask(inputValue, tasks) {
   return tasks;
 }
 
-export function handleTaskDescriptionEdit(event) {
-  const descriptionElement = event.target;
-  if (descriptionElement.classList.contains('description')) {
-    const listItem = descriptionElement.closest('.todo-item');
-    if (listItem) {
-      const taskIndex = parseInt(listItem.id, 10);
-      const newDescription = descriptionElement.textContent;
 
-      tasks[taskIndex].description = newDescription;
-    }
-  }
-}
 
 function updateTaskIndexes() {
   tasks.forEach((task, index) => {
@@ -56,15 +45,4 @@ export function removeTask() {
 
   // Add event listener using event delegation
   todoListContainer.addEventListener('click', handleTrashIconClick);
-}
-
-export function editTask(index, newDescription) {
-  tasks[index].description = newDescription;
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-  renderTodoList();
-}
-
-export function listenForEdit() {
-  const todoListContainer = document.getElementById('todo');
-  todoListContainer.addEventListener('input', handleTaskDescriptionEdit);
 }

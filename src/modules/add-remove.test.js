@@ -32,9 +32,7 @@ describe('addTask', () => {
       new Task(false, 'Existing Task', 1),
       new Task(false, 'First Task', 2),
     ];
-
     const result = addTask(inputValue, initialTasks);
-
     expect(result).toEqual(expectedTasks);
   });
 });
