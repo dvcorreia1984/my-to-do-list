@@ -41,8 +41,6 @@ export function renderTodoList() {
         description.style.color = '#333333';
         task.completed = false;
       }
-
-      localStorage.setItem('tasks', JSON.stringify(tasks));
     });
   });
 }
@@ -54,6 +52,7 @@ export function handleFormSubmit(event) {
   addTask(formInputValue, tasks);
   document.getElementById('formInput').value = '';
   localStorage.setItem('tasks', JSON.stringify(tasks));
+  renderTodoList();
 }
 
 const wrapper = document.createElement('div');
