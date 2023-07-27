@@ -1,6 +1,6 @@
 // display.js
 
-import tasks from './add-remove.js';
+import { tasks } from './add-remove.js';
 
 // Render todo list
 export default function renderTodoList() {
@@ -26,6 +26,7 @@ export default function renderTodoList() {
 
     // Add event listener to each checkbox when rendering
     const checkbox = listItem.querySelector(`#checkbox_${task.index}`);
+    
     checkbox.addEventListener('change', () => {
       if (checkbox.checked === true) {
         // change style of description to line-through
@@ -40,11 +41,12 @@ export default function renderTodoList() {
         description.style.color = '#333333';
         task.completed = false;
       }
+
       localStorage.setItem('tasks', JSON.stringify(tasks));
     });
   });
 }
-
+const wrapper = document.createElement('div');
 const todoHeading = document.createElement('div');
 todoHeading.id = 'todoHeading';
 document.getElementById('wrapper').appendChild(todoHeading);

@@ -7,8 +7,9 @@
     "start": "webpack --mode development --watch",
     "build": "webpack --mode production",
     "dev": "webpack serve --mode development --open --hot",
-    "test": "jest --coverage",
-    "watch": "jest --watch *.js"
+    "test": "jest",
+    "watch": "jest --watch *.js",
+    "testdom": "jest --testEnvironment jsdom --testPattern='*.test.js"
   },
   "keywords": [],
   "author": "",
