@@ -28,7 +28,7 @@ export function renderTodoList() {
     // Add event listener to trash icon
     const trashIcon = listItem.querySelector('#trash');
     trashIcon.addEventListener('click', () => {
-      removeTask(task.index);
+      removeTask(task.index, tasks);
       trashIcon.closest('.todo-item').remove();
     });
 

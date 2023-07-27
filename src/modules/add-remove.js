@@ -18,6 +18,11 @@ export function addTask(inputValue, tasks) {
   return tasks;
 }
 
-export function removeTask(index) {
-  remove(Task.tasks, (task) => task.index === index);
+export function removeTask(index, tasks) {
+  const indexToRemove = tasks.findIndex((task) => task.index === index);
+  tasks.splice(indexToRemove, 1);
+  tasks.forEach((task, index) => {
+    task.index = index + 1;
+  });
+  return tasks;
 }
