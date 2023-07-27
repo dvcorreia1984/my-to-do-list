@@ -8,7 +8,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: '[name].[contenthash].js',
     clean: true,
     // assetModuleFilename: '[name][ext]',
   },
@@ -17,7 +17,7 @@ module.exports = {
     static: {
       directory: path.resolve(__dirname, 'dist'),
     },
-    port: 3000,
+    port: 1003,
     open: true,
     hot: true,
     compress: true,

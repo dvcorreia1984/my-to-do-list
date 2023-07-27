@@ -47,6 +47,7 @@
 -Tasks can also be removed and edited. 
 - Data is stored in local storage
 - Checkboxes are used to mark tasks that are completed. 
+- Unit testing was added. 
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

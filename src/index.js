@@ -1,9 +1,10 @@
+// index.js
 import './style.css';
-import { addTask, removeTask } from './add-remove.js';
-import renderTodoList from './display.js';
+import { addTask, removeTask } from './modules/add-remove.js';
+import { renderTodoList } from './modules/display.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  addTask();
   renderTodoList();
+  addTask();
   removeTask();
 });
