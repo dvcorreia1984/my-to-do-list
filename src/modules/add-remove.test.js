@@ -36,3 +36,31 @@ describe('addTask', () => {
     expect(result).toEqual(expectedTasks);
   });
 });
+
+// Test the removeTask function
+describe('removeTask', () => {
+  beforeEach(() => {
+    // Clear tasks before each test
+    Task.tasks = [];
+  });
+
+  test('should remove task at index', () => {
+    const initialTasks = [
+      new Task(false, 'Existing Task', 1),
+      new Task(false, 'First Task', 2),
+    ];
+    const expectedTasks = [new Task(false, 'Existing Task', 1)];
+    const result = Task.removeTask(1);
+    expect(result).toEqual(expectedTasks);
+  });
+
+  test('should update index of tasks after removal', () => {
+    const initialTasks = [
+      new Task(false, 'Existing Task', 1),
+      new Task(false, 'First Task', 2),
+    ];
+    const expectedTasks = [new Task(false, 'Existing Task', 1)];
+    const result = Task.removeTask(1);
+    expect(result).toEqual(expectedTasks);
+  });
+});
