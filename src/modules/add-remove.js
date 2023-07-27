@@ -1,6 +1,6 @@
 // add-remove.js
 
-import renderTodoList from './display.js';
+import { renderTodoList, handleFormSubmit } from './display.js';
 
 export class Task {
   constructor(completed, description, index) {
@@ -10,30 +10,22 @@ export class Task {
   }
 }
 
-function loadTasks() {
+export function loadTasks() {
   return localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
 }
 
 export const tasks = loadTasks();
 
-export function addTask() {
-  const formInputValue = document.getElementById('formInput');
-  const form = document.getElementById('form');
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const inputValue = formInputValue.value.trim();
-    if (inputValue === '') {
-      return;
-    }
-    const newTask = new Task(false, inputValue, tasks.length + 1);
-    tasks.push(newTask);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-    formInputValue.value = '';
-    renderTodoList();
-  });
+export function addTask(inputValue, tasks) {
+  loadTasks();
+  if (inputValue === '') {
+    return;
+  }
+  const newTask = new Task(false, inputValue, tasks.length + 1);
+  tasks.push(newTask);
 }
 
-function handleTaskDescriptionEdit(event) {
+export function handleTaskDescriptionEdit(event) {
   const descriptionElement = event.target;
   if (descriptionElement.classList.contains('description')) {
     const listItem = descriptionElement.closest('.todo-item');

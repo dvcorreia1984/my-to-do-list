@@ -1,9 +1,9 @@
 // display.js
 
-import { tasks } from './add-remove.js';
+import { tasks, addTask } from './add-remove.js';
 
 // Render todo list
-export default function renderTodoList() {
+export function renderTodoList() {
   const todoListContainer = document.getElementById('todo');
   todoListContainer.innerHTML = '';
   tasks.sort((a, b) => a.index - b.index);
@@ -46,6 +46,15 @@ export default function renderTodoList() {
     });
   });
 }
+
+export function handleFormSubmit(event) {
+  event.preventDefault();
+  const formInputValue = document.getElementById('formInput').value.trim();
+  // const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  addTask(formInputValue, tasks);
+  document.getElementById('formInput').value = '';
+}
+
 const wrapper = document.createElement('div');
 const todoHeading = document.createElement('div');
 todoHeading.id = 'todoHeading';
@@ -65,6 +74,7 @@ document.getElementById('wrapper').appendChild(formContainer);
 
 const form = document.createElement('form');
 form.id = 'form';
+form.addEventListener('submit', handleFormSubmit);
 document.getElementById('form-container').appendChild(form);
 
 const formInput = document.createElement('input');
