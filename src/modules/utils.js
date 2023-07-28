@@ -1,4 +1,4 @@
-export default function editTaskDescription(index, tasks, newDescription) {
+export function editTaskDescription(index, tasks, newDescription) {
   // if description is empty, return tasks
   if (newDescription === '') {
     return tasks;
@@ -11,9 +11,14 @@ export default function editTaskDescription(index, tasks, newDescription) {
   return tasks;
 }
 
-// change task status from completed to not completed and vice versa
-export function changeTaskStatus(index, tasks) {
-  const indexToChange = tasks.findIndex((task) => task.index === index);
-  tasks[indexToChange].completed = !tasks[indexToChange].completed;
+export function changeTaskStatus(index, tasks, completed) {
+  if (tasks.findIndex((task) => task.index === index) === -1) {
+    return tasks;
+  }
+  if (typeof completed !== 'boolean') {
+    return tasks;
+  }
+  const indexToEdit = tasks.findIndex((task) => task.index === index);
+  tasks[indexToEdit].completed = completed;
   return tasks;
 }

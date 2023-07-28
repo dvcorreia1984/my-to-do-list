@@ -1,7 +1,7 @@
 // display.js
 import { tasks } from './storage.js';
 import { addTask, removeTask } from './add-remove.js';
-import editTaskDescription from './utils.js';
+import { editTaskDescription, changeTaskStatus } from './utils.js';
 
 // Render todo list
 export function renderTodoList() {
@@ -44,20 +44,27 @@ export function renderTodoList() {
         description.style.textDecoration = 'line-through';
         description.style.color = '#BDBDBD';
         task.completed = true;
+        changeTaskStatus(task.index, tasks, task.completed);
       } else {
         // change style of description to normal
         const description = listItem.querySelector('.description');
         description.style.textDecoration = 'none';
         description.style.color = '#333333';
         task.completed = false;
+        changeTaskStatus(task.index, tasks, task.completed);
       }
     });
 
-    // Add event listener to each task input
+    // Add event listener to each task input for editing
     const taskInput = listItem.querySelector('.taskInput');
     taskInput.addEventListener('change', () => {
-      task.description = taskInput.value;
-      editTaskDescription(task.index, tasks, taskInput.value);
+      if (taskInput.value !== '') {
+        task.description = taskInput.value;
+        editTaskDescription(task.index, tasks, taskInput.value);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+      } else {
+        taskInput.value = task.description;
+      }
     });
 
     // add keypress event listener to task input
