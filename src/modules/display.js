@@ -14,7 +14,9 @@ export function renderTodoList() {
       <div class="checkbox-container">
         <input type="checkbox" id="checkbox_${task.index}" class="checkbox">
       </div>
-      <div class="description" contenteditable="true">${task.description}</div>
+      <div class="description">${task.description}
+        <i id="edit" class="fa fa-edit" aria-hidden="true"></i>
+      </div>
       <div id="delete" class="delete">
         <i id="trash" class="fa fa-trash" aria-hidden="true"></i>
       </div>

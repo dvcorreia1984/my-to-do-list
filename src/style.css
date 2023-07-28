@@ -172,3 +172,13 @@ input#checkbox {
   width: 20px;
   padding-right: 10px;
 }
+
+i#edit {
+  color: #0077b6;
+}
+
+i#edit:hover {
+  cursor: pointer;
+  color: orange;
+  font-size: larger;
+}
