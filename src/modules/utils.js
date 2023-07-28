@@ -1,26 +1,38 @@
-import { tasks } from './storage.js';
-import { renderTodoList } from './display.js';
-
-export function handleTaskDescriptionEdit(event) {
-  const descriptionElement = event.target;
-  if (descriptionElement.classList.contains('description')) {
-    const listItem = descriptionElement.closest('.todo-item');
-    if (listItem) {
-      const taskIndex = parseInt(listItem.id, 10);
-      const newDescription = descriptionElement.textContent;
-
-      tasks[taskIndex].description = newDescription;
-    }
+export function editTaskDescription(index, tasks, newDescription) {
+  if (newDescription === '') {
+    return tasks;
   }
+  if (tasks.findIndex((task) => task.index === index) === -1) {
+    return tasks;
+  }
+  const indexToEdit = tasks.findIndex((task) => task.index === index);
+  tasks[indexToEdit].description = newDescription;
+  return tasks;
 }
 
-export function listenForEdit() {
-  const todoListContainer = document.getElementById('todo');
-  todoListContainer.addEventListener('input', handleTaskDescriptionEdit);
+export function changeTaskStatus(index, tasks, completed) {
+  if (tasks.findIndex((task) => task.index === index) === -1) {
+    return tasks;
+  }
+  if (typeof completed !== 'boolean') {
+    return tasks;
+  }
+  const indexToEdit = tasks.findIndex((task) => task.index === index);
+  tasks[indexToEdit].completed = completed;
+  return tasks;
 }
 
-export function editTask(index, newDescription) {
-  tasks[index].description = newDescription;
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-  renderTodoList();
+export function clearCompletedTasks(tasks) {
+  if (!Array.isArray(tasks)) {
+    return tasks;
+  }
+  const completedTasks = tasks.filter((task) => task.completed === true);
+  completedTasks.forEach((task) => {
+    const indexToRemove = tasks.findIndex((t) => t.index === task.index);
+    tasks.splice(indexToRemove, 1);
+  });
+  tasks.forEach((task, index) => {
+    task.index = index + 1;
+  });
+  return tasks;
 }

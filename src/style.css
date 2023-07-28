@@ -19,6 +19,13 @@ h2 {
   font-size: 1.5rem;
 }
 
+h6 {
+  margin-top: 30vh;
+  display: flex;
+  justify-content: center;
+  color: #90e0ef;
+}
+
 img {
   height: 20px;
   width: 20px;
@@ -137,6 +144,8 @@ button#clear:hover {
 }
 
 .description {
+  display: flex;
+  flex-direction: row;
   border: none;
   outline: none;
   flex-grow: 2;
@@ -171,4 +180,37 @@ input#checkbox {
   display: flex;
   width: 20px;
   padding-right: 10px;
+}
+
+i#edit {
+  color: #0077b6;
+}
+
+i#edit:hover {
+  cursor: none;
+  color: orange;
+  font-size: larger;
+}
+
+input#edit {
+  border: 1px solid orange;
+  background-color: #0077b6;
+  color: white;
+  font-size: larger;
+  width: auto;
+}
+
+input.taskInput {
+  width: auto;
+  background-color: #0077b6;
+  color: #90e0ef;
+  font-size: larger;
+  font-weight: 600;
+}
+
+input.taskInput:hover {
+  background-color: #caf0f8;
+  cursor: pointer;
+  color: #03045e;
+  font-style: italic;
 }

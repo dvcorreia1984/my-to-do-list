@@ -1,6 +1,7 @@
 // display.js
-import tasks from './storage.js';
+import { tasks } from './storage.js';
 import { addTask, removeTask } from './add-remove.js';
+import { editTaskDescription, changeTaskStatus, clearCompletedTasks } from './utils.js';
 
 // Render todo list
 export function renderTodoList() {
@@ -14,7 +15,9 @@ export function renderTodoList() {
       <div class="checkbox-container">
         <input type="checkbox" id="checkbox_${task.index}" class="checkbox">
       </div>
-      <div class="description" contenteditable="true">${task.description}</div>
+      <div class="description">
+        <div><input class="taskInput" type="text" maxlength="30" value="${task.description}"></div>
+      </div>
       <div id="delete" class="delete">
         <i id="trash" class="fa fa-trash" aria-hidden="true"></i>
       </div>
@@ -37,16 +40,38 @@ export function renderTodoList() {
     checkbox.addEventListener('change', () => {
       if (checkbox.checked === true) {
         // change style of description to line-through
-        const description = listItem.querySelector('.description');
+        const description = listItem.querySelector('.taskInput');
         description.style.textDecoration = 'line-through';
-        description.style.color = '#BDBDBD';
+        description.style.color = 'orange';
         task.completed = true;
+        changeTaskStatus(task.index, tasks, task.completed);
       } else {
         // change style of description to normal
-        const description = listItem.querySelector('.description');
+        const description = listItem.querySelector('.taskInput');
         description.style.textDecoration = 'none';
-        description.style.color = '#333333';
+        description.style.color = '#90e0ef';
         task.completed = false;
+        changeTaskStatus(task.index, tasks, task.completed);
+      }
+    });
+
+    // Add event listener to each task input for editing
+    const taskInput = listItem.querySelector('.taskInput');
+    taskInput.addEventListener('change', () => {
+      if (taskInput.value !== '') {
+        task.description = taskInput.value;
+        editTaskDescription(task.index, tasks, taskInput.value);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+      } else {
+        taskInput.value = task.description;
+      }
+    });
+
+    // add keypress event listener to task input
+    taskInput.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        taskInput.blur();
       }
     });
   });
@@ -112,11 +137,7 @@ document.getElementById('wrapper').appendChild(clear);
 
 const clearAll = document.getElementById('clear');
 clearAll.addEventListener('click', () => {
-  const completedTasks = tasks.filter((task) => task.completed === true);
-  completedTasks.forEach((task) => {
-    const taskIndex = tasks.indexOf(task);
-    tasks.splice(taskIndex, 1);
-  });
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+  clearCompletedTasks(tasks);
   renderTodoList();
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 });
