@@ -1,5 +1,5 @@
 // display.js
-import tasks from './storage.js';
+import { tasks } from './storage.js';
 import { addTask, removeTask } from './add-remove.js';
 
 // Render todo list
