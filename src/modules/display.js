@@ -40,16 +40,16 @@ export function renderTodoList() {
     checkbox.addEventListener('change', () => {
       if (checkbox.checked === true) {
         // change style of description to line-through
-        const description = listItem.querySelector('.description');
+        const description = listItem.querySelector('.taskInput');
         description.style.textDecoration = 'line-through';
-        description.style.color = '#BDBDBD';
+        description.style.color = 'orange';
         task.completed = true;
         changeTaskStatus(task.index, tasks, task.completed);
       } else {
         // change style of description to normal
-        const description = listItem.querySelector('.description');
+        const description = listItem.querySelector('.taskInput');
         description.style.textDecoration = 'none';
-        description.style.color = '#333333';
+        description.style.color = '#90e0ef';
         task.completed = false;
         changeTaskStatus(task.index, tasks, task.completed);
       }
