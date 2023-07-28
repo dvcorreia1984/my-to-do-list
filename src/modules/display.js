@@ -1,6 +1,7 @@
 // display.js
 import { tasks } from './storage.js';
 import { addTask, removeTask } from './add-remove.js';
+import editTaskDescription from './utils.js';
 
 // Render todo list
 export function renderTodoList() {
@@ -16,7 +17,6 @@ export function renderTodoList() {
       </div>
       <div class="description">
         <div><input class="taskInput" type="text" maxlength="30" value="${task.description}"></div>
-        <div><i id="edit" class="fa fa-edit" aria-hidden="true"></i></div>
       </div>
       <div id="delete" class="delete">
         <i id="trash" class="fa fa-trash" aria-hidden="true"></i>
@@ -50,6 +50,21 @@ export function renderTodoList() {
         description.style.textDecoration = 'none';
         description.style.color = '#333333';
         task.completed = false;
+      }
+    });
+
+    // Add event listener to each task input
+    const taskInput = listItem.querySelector('.taskInput');
+    taskInput.addEventListener('change', () => {
+      task.description = taskInput.value;
+      editTaskDescription(task.index, tasks, taskInput.value);
+    });
+
+    // add keypress event listener to task input
+    taskInput.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        taskInput.blur();
       }
     });
   });

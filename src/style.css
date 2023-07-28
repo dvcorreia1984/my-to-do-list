@@ -180,7 +180,7 @@ i#edit {
 }
 
 i#edit:hover {
-  cursor: pointer;
+  cursor: none;
   color: orange;
   font-size: larger;
 }
@@ -203,7 +203,7 @@ input.taskInput {
 }
 
 input.taskInput:hover {
-  cursor:;
+  cursor: pointer;
   color: orange;
   font-style: italic;
 }
