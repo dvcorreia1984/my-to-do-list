@@ -1,7 +1,7 @@
 // display.js
 import { tasks } from './storage.js';
 import { addTask, removeTask } from './add-remove.js';
-import { editTaskDescription, changeTaskStatus } from './utils.js';
+import { editTaskDescription, changeTaskStatus, clearCompletedTasks } from './utils.js';
 
 // Render todo list
 export function renderTodoList() {
@@ -137,11 +137,7 @@ document.getElementById('wrapper').appendChild(clear);
 
 const clearAll = document.getElementById('clear');
 clearAll.addEventListener('click', () => {
-  const completedTasks = tasks.filter((task) => task.completed === true);
-  completedTasks.forEach((task) => {
-    const taskIndex = tasks.indexOf(task);
-    tasks.splice(taskIndex, 1);
-  });
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+  clearCompletedTasks(tasks);
   renderTodoList();
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 });
